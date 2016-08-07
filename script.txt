@@ -7,4 +7,9 @@ rspec --init
 
 
 
+rails g controller greeter hello
 
+
+
+rake --tasks
+rake routes
