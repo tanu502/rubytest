@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'greeter/hello'
+  root 'greeter#hello'
   get 'greeter/goodbye'
 
   # The priority is based upon order of creation: first created -> highest priority.
