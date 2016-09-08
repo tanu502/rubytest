@@ -13,3 +13,134 @@ rails g controller greeter hello
 
 rake --tasks
 rake routes
+
+
+rake --tasks
+rake routes
+rake db:migrate
+rake --describe db:seed
+
+
+gem install rspec
+rspec --init
+
+
+
+rails g controller courses hello
+
+
+
+
+
+heroku login
+heroku create appname
+git remote -v
+
+https://github.com/jhu-ep-coursera/fullstack-course1-module3-blackbox-testing/tree/master/spec
+
+
+rails g scaffold car make color year:integer
+rails g migration add_price_to_cars 'price:decimal{10,2}'
+rails g migration rename_make_to_commanuy
+
+
+rails db
+.headers on
+.mode conlumns
+
+rails c
+
+rails g model person first_name age:integer last_name
+
+# Create controller views
+rails g controller sessions new create destroy -q
+
+
+
+rails g migration add_login_pass_to_people login pass
+
+
+raname_column :table_name,:cld_column_name, :new_column_name
+
+
+SQL Query
+
+Person.find_by last_name: "kam"
+Person.find_by("first_name like '%t%'")
+Person.where("first_name LIKE ? OR last_name LIKE ?",'%t%',"%p%")
+Person.where("age between ? and ?",20,24).to_a
+Person.where("age between :min_age and :max_age",min_age:15,max_age:32).to_a
+Person.ordered_by_age.limit(1).starts_with("t").pluck :age,:first_name
+
+
+rails g model person_info height:float weight:float person:references
+rails g model job title company position_id person:references
+rails g model hobby name
+rails g migration create_hobbies_peeple person:references hobby:references
+
+rails g scaffole post title content:text
+
+rails g model reviewer name password_difest -q
+rails g model book name author reviewer:references -q
+rails g model note title note:text book:references -q
+
+rails g scaffold_controller book name author
+
+
+
+BLPRWA42
+67230552
+
+
+
+helper.content_tag(:div,helper.content_tag(:p,"Cool"),class:"world")
+
+
+to_yaml
+
+
+rails g model ProductField name field_type requirde:boolean product_type:belongs_to
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+development:
+  adapter: postgresql
+  database: myrubyblog
+  encoding: utf8
+  pool: 5
+  username: postgres
+  password: root
+  timeout: 5000
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  adapter: postgresql
+  database: myrubyblog
+  encoding: utf8
+  pool: 5
+  username: postgres
+  password: root
+  timeout: 5000
+
+production:
+  adapter: postgresql
+  database: myrubyblog
+  encoding: utf8
+  pool: 5
+  username: postgres
+  password: root
+  timeout: 5000
