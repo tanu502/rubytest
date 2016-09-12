@@ -1,37 +1,17 @@
-<%= simple_form_for(@user, html: { class: 'form-horizontal' }) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+		
+	<%= simple_form_for(@user, html: { class: 'form-horizontal' }) do |f| %>
+	  <%= f.error_notification %>
+	  <%= f.input :username ,label: "ชื่อผู้ใช้ : ", placeholder: 'Enter Username'%>
+	  <%= f.input :password %>
+	  <%= f.input :email, hint: "email address " %>
+	  <%= f.input :age %>
+	  <%= f.input :images %>
 
-  <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.text_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :age %><br>
-    <%= f.number_field :age %>
-  </div>
-  <div class="field">
-    <%= f.label :images %><br>
-    <%= f.text_field :images %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+	  <%= f.button :submit %>
+	  <%=  link_to 'Back', users_path ,class:'btn btn-info',id:"back" %>
+	  <%= f.error :base %>
+		
+	<% end %>
+
+	  <%= text_field_tag "Search",nil,class:"form-control" %>
