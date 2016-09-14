@@ -1,17 +1,13 @@
+<%= simple_form_for(@user, html: { class: 'form-horizontal' }) do |f| %>
+	<%= f.error_notification %>
+	<%= f.input :username ,label: "ชื่อผู้ใช้ : ", placeholder: 'Enter Username'%>
+	<%= f.input :password %>
+	<%= f.input :email, hint: "email address " %>
+	<%= f.input :age %>
+	<%= f.input :images %>
 
-		
-	<%= simple_form_for(@user, html: { class: 'form-horizontal' }) do |f| %>
-	  <%= f.error_notification %>
-	  <%= f.input :username ,label: "ชื่อผู้ใช้ : ", placeholder: 'Enter Username'%>
-	  <%= f.input :password %>
-	  <%= f.input :email, hint: "email address " %>
-	  <%= f.input :age %>
-	  <%= f.input :images %>
+	<%= f.button :submit %>
+	<%=  link_to 'Back', users_path ,class:'btn btn-info',id:"back" %>
+	<%= f.error :base %>
 
-	  <%= f.button :submit %>
-	  <%=  link_to 'Back', users_path ,class:'btn btn-info',id:"back" %>
-	  <%= f.error :base %>
-		
-	<% end %>
-
-	  <%= text_field_tag "Search",nil,class:"form-control" %>
+<% end %>
