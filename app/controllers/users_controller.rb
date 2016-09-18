@@ -24,10 +24,23 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    forder_upload   = 'app/assets/images/'
+    @user_save      = user_params
+    images          = params[:user][:images]
+    img_name        = ""
+    if images != nil
+      img_name = DateTime.now.to_s(:number) + "-"+images.original_filename
+    end
+    @user_save[:images]  = img_name
+    @user = User.new(@user_save)
 
     respond_to do |format|
       if @user.save
+        if images != nil
+          File.open(Rails.root.join(forder_upload.to_s,  img_name), 'wb') do |file|
+            file.write(images.read)
+          end
+        end
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -40,8 +53,21 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    forder_upload   = 'app/assets/images/'
+    @user_save      = user_params
+    images          = params[:user][:images]
+    img_name        = ""
+    if images != nil
+      img_name = DateTime.now.to_s(:number) + "-"+images.original_filename
+    end
+    @user_save[:images]  = img_name
     respond_to do |format|
       if @user.update(user_params)
+        if images != nil
+          File.open(Rails.root.join(forder_upload.to_s,  img_name), 'wb') do |file|
+            file.write(images.read)
+          end
+        end
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else

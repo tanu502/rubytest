@@ -22,8 +22,7 @@
 
 <p>
   <strong>Images:</strong>
-  <%= @user.images %>
+  <%= image_tag(@user.images) %>
 </p>
-
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

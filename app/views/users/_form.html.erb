@@ -4,8 +4,7 @@
 	<%= f.input :password %>
 	<%= f.input :email, hint: "email address " %>
 	<%= f.input :age %>
-	<%= f.input :images %>
-
+	<%= f.file_field :images ,label: "Images"%>
 	<%= f.button :submit %>
 	<%=  link_to 'Back', users_path ,class:'btn btn-info',id:"back" %>
 	<%= f.error :base %>
